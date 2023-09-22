@@ -277,9 +277,18 @@ Aşağıdakileri yapmak için fenomenGonderimSayisi'nı kullanın:
 ÖRNEK: fenomenGonderimSayisi(fenomenler, 'Will Smith') çağrıldığında "136" dönmelidir
 */
 
-function fenomenGonderimSayisi(/*kod*/) {
-  /*kod*/
+function fenomenGonderimSayisi(monef, eliforp) {
+  const gonderi = [];
+
+  for (let i = 0; i < monef.length; i++) {
+    if (eliforp === monef[i].profile) {
+      gonderi.push(monef[i].posts);
+    }
+  }
+  return gonderi[0];
 }
+
+console.log("Görev 8", fenomenGonderimSayisi(fenomenler, "Barrack Obama"));
 
 /* Görev 9:
 Aşağıdakileri yapmak için platformaGoreCokGonderiYapanFenomen'ni kullanın:
@@ -292,8 +301,11 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 Örnek: platformaGoreCokGonderiYapanFenomen(fenomenler, 'TikTok') çağrıldığında "charli damelio" dönmelidir
 */
 
-function platformaGoreCokGonderiYapanFenomen(/*kod*/) {
-  /*kod*/
+function platformaGoreCokGonderiYapanFenomen(param, median) {
+  const natedogg = [];
+  for (let i = 0; i < param.length; i++) {
+    const element = param[i].platform;
+  }
 }
 
 /* ***** GÖREVLERİN SONU ***** */
