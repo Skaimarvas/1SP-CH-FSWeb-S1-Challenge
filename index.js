@@ -278,17 +278,14 @@ Aşağıdakileri yapmak için fenomenGonderimSayisi'nı kullanın:
 */
 
 function fenomenGonderimSayisi(monef, eliforp) {
-  const gonderi = [];
-
   for (let i = 0; i < monef.length; i++) {
-    if (eliforp === monef[i].profile) {
-      gonderi.push(monef[i].posts);
+    if (monef[i].profile.toLowerCase() === eliforp.toLowerCase()) {
+      return monef[i].posts;
     }
   }
-  return gonderi[0];
 }
 
-console.log("Görev 8", fenomenGonderimSayisi(fenomenler, "Barrack Obama"));
+console.log("Görev 8", fenomenGonderimSayisi(fenomenler, "Barack Obama"));
 
 /* Görev 9:
 Aşağıdakileri yapmak için platformaGoreCokGonderiYapanFenomen'ni kullanın:
@@ -302,11 +299,30 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 */
 
 function platformaGoreCokGonderiYapanFenomen(param, median) {
-  const natedogg = [];
+  let enCokGonderiYapanFenomen = null;
+  let enCokGonderiSayisi = 0;
+
   for (let i = 0; i < param.length; i++) {
-    const element = param[i].platform;
+    const fenomen = param[i];
+
+    if (
+      fenomen.platform.toLowerCase() === median.toLowerCase() &&
+      fenomen.posts !== "NA"
+    ) {
+      if (fenomen.posts > enCokGonderiSayisi) {
+        enCokGonderiYapanFenomen = fenomen.profile;
+        enCokGonderiSayisi = fenomen.posts;
+      }
+    }
   }
+
+  return enCokGonderiYapanFenomen;
 }
+
+console.log(
+  "Görev 9",
+  platformaGoreCokGonderiYapanFenomen(fenomenler, "Twitter")
+);
 
 /* ***** GÖREVLERİN SONU ***** */
 
